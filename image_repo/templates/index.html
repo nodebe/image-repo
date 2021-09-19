@@ -16,16 +16,18 @@
 			</div>
 		</div>
 		<div class="col-md-4 col-sm-12">
-			<form method="post" enctype="multipart/form-data">
+			<form method="post" enctype="multipart/form-data" action="{{url_for('main.filespostform')}}">
+				{{ file_form.hidden_tag() }}
+                {% from 'includes/_formhelpers.html' import render_field  %}
 			    <div class="mb-1 form-group">
 				  <label for="src-2" class="form-label">Multiple Image input</label>
-				  <input class="form-control-file" type="file" id="src-2" multiple>
+				  {{ render_field(file_form.file, class_='form-control-file', id='src-2')}}
 				</div>
 				{% if not current_user.is_authenticated %}
 			    	<div id="picturehelp" class="form-text mb-3 text-danger">You have to be logged in.</div>
 			  		<a class="btn btn-outline-info"  data-toggle="modal" data-target="#loginModal">Submit</a>
 			    {% else %}
-			    	<button type="submit" class="btn btn-outline-info">Submit</button>
+			    	<button type="submit" class="btn btn-outline-info mt-3">Submit</button>
 			    {% endif %}
 			</form>
 			<div id="imgs" class="mt-3"></div>

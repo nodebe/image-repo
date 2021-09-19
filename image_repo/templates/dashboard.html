@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container-fluid text-white my-5">
+	<div class="row p-4">
+		<div class="col-12">
+			<h2>Your Images</h2>
+			<hr class="text-white">
+			<div class="mb-4">
+				{% for picture in current_user.pictures %}
+				<img src="{{url_for('static', filename='images/'+picture.picture_name)}}" class="rounded float-start my-3 col-sm-12 col-md-3" style="height: 150px;">
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body %}

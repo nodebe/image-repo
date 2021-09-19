@@ -18,7 +18,9 @@
 		          		<a href="{{url_for('main.login')}}" class="btn btn-info text-white" type="submit" data-toggle="modal" data-target="#loginModal">Login</a>
 
 		        	{% else %}
-		        		<a href="{{url_for('main.logout')}}" class="btn btn-info text-white" type="submit">Logout</a>
+		        		<a href="{{url_for('main.dashboard')}}" class="btn btn-info text-white">Dashboard</a>
+		        		<a href="{{url_for('main.index')}}" class="btn btn-info text-white">Add</a>
+		        		<a href="{{url_for('main.logout')}}" class="btn btn-outline-info text-white">Logout</a>
 		        	{% endif %}
 		        </li>
     		</ul>
@@ -35,21 +37,26 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <form>
+	        <form method="post" action="{{url_for('main.login')}}">
+	        	{{ login_form.hidden_tag() }}
+                {% from 'includes/_formhelpers.html' import render_field  %}
 	        	<small id="loginhelp" class="form-text text-muted mb-2">This is a test app, you can login with any email and password.</small>
 			  <div class="form-group">
-			    <label for="InputEmail1">Email</label>
-			    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+			    <label for="InputEmail">Email</label>
+			    {{ render_field(login_form.email, class_='form-control', id='InputEmail') }}
 			  </div>
 			  <div class="form-group">
-			    <label for="InputPassword1">Password</label>
-			    <input type="password" class="form-control" id="InputPassword1">
+			    <label for="InputPassword">Password</label>
+			    {{ render_field(login_form.password, class_='form-control', id='InputPassword')}}
 			  </div>
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 	      </div>
 	    </div>
 	  </div>
+	</div>
+	<div class="col-md-7">
+		{% include 'includes/_messages.html' %}
 	</div>
 {% block body %}
 
