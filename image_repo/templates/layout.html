@@ -55,12 +55,25 @@
 	    </div>
 	  </div>
 	</div>
+	<hr>
 	<div class="col-md-7">
 		{% include 'includes/_messages.html' %}
 	</div>
 {% block body %}
 
 {% endblock body %}
+<hr>
+ <footer id="footer">
+    <div class="container pb-3">
+      <div class="footer-copyright pt-3 pt-lg-2 mt-2">
+        <div class="row">
+          <div class="col-lg">
+            <p class="text-center text-white text-lg-center mb-2 mb-lg-0"><a href="/">Image-Repo</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 <script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
