@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container-fluid text-white my-5">
+	<div class="row p-4">
+		<div class="col-md-8 col-sm-12">
+			<div class="mb-4">
+				<img src="{{url_for('static', filename='images/pic1.jpg')}}" class="rounded float-start" width="30%">
+				<img src="{{url_for('static', filename='images/pic2.jpg')}}" class="rounded float-start" width="30%">
+				<img src="{{url_for('static', filename='images/pic3.jpg')}}" class="rounded float-start" width="30%">
+			</div>
+			<div class="mb-4">
+				<img src="{{url_for('static', filename='images/pic4.jpg')}}" class="rounded float-start" width="30%">
+				<img src="{{url_for('static', filename='images/pic5.jpg')}}" class="rounded float-start" width="30%">
+				<img src="{{url_for('static', filename='images/pic6.jpg')}}" class="rounded float-start" width="30%">
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-12">
+			<form method="post" enctype="multipart/form-data">
+			    <div class="mb-1 form-group">
+				  <label for="src-2" class="form-label">Multiple Image input</label>
+				  <input class="form-control-file" type="file" id="src-2" multiple>
+				</div>
+				{% if not current_user.is_authenticated %}
+			    	<div id="picturehelp" class="form-text mb-3 text-danger">You have to be logged in.</div>
+			  		<a class="btn btn-outline-info"  data-toggle="modal" data-target="#loginModal">Submit</a>
+			    {% else %}
+			    	<button type="submit" class="btn btn-outline-info">Submit</button>
+			    {% endif %}
+			</form>
+			<div id="imgs" class="mt-3"></div>
+		</div>
+	</div>
+
+</div>
+{% endblock body %}
