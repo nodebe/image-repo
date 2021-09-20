@@ -18,8 +18,8 @@
 		          		<a href="{{url_for('main.login')}}" class="btn btn-info text-white" type="submit" data-toggle="modal" data-target="#loginModal">Login</a>
 
 		        	{% else %}
+		        		<a href="{{url_for('main.index')}}" class="btn btn-info text-white">Home</a>
 		        		<a href="{{url_for('main.dashboard')}}" class="btn btn-info text-white">Dashboard</a>
-		        		<a href="{{url_for('main.index')}}" class="btn btn-info text-white">Add</a>
 		        		<a href="{{url_for('main.logout')}}" class="btn btn-outline-info text-white">Logout</a>
 		        	{% endif %}
 		        </li>

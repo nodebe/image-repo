@@ -42,7 +42,8 @@ def login():
 @main.route('/dashboard')
 def dashboard():
 	login_form = LoginForm()
-	return render_template('dashboard.html', login_form=login_form)
+	file_form = InsertImageForm()
+	return render_template('dashboard.html', login_form=login_form, file_form=file_form)
 
 @main.route('/filespostform', methods=["POST"])
 def filespostform():
@@ -61,7 +62,7 @@ def filespostform():
 		db.session.commit()
 		flash('Your images have been added.', 'success')
 
-	return redirect(url_for('main.index'))
+	return redirect(url_for('main.dashboard'))
 
 @main.route('/logout')
 def logout():
